@@ -6,7 +6,7 @@ class User(object):
         self.name = name
         self.common = User.addUp(common)
         self.personal = User.addUp(personal)
-        self.balance = float(balance)
+        self.balance = User.addUp(balance)
         self.reserve = float(reserve)
         self.payment = float(payment)
         print 'Initial: %s(%s, %s, %s, %s, %s)' % (name, str(self.common), str(self.personal), str(balance), str(reserve), str(payment))
@@ -36,8 +36,8 @@ class User(object):
                 
 # test
 def test():
-    user1 = User('name1', [1.0, 2.0], [3.5, 4.1], 9.7, 0)
-    user2 = User('name2', [3.0, 4.0], [4.5, 5.1], 8.7, 0)
+    user1 = User('name1', [1.0, 2.0], [3.5, 4.1], [9.7, 1], 0)
+    user2 = User('name2', [3.0, 4.0], [4.5, 5.1], [8.7], 0)
     User.calPayment([user1, user2])
 
 if __name__ == '__main__':
